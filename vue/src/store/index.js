@@ -1,16 +1,114 @@
 import { createStore } from "vuex";
 import axiosClient from "../axios";
+
+const tmpSurveys = [
+  {
+    id:100,
+    title:"This is title",
+    slug:'this-is-slug',
+    status:"draft",
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD782S4cWMIFpscSqMM_aFUzT8L-7v75q9IQ&usqp=CAU",
+    description:"This is description",
+    created_at:"2023-09-13 18:00:00",
+    updated_at:"2023-09-13 18:00:00",
+    expire_date:"2023-09-13 18:00:00",
+    questions:[
+      {
+        id:1,
+        type:"select",
+        question: "This is quesiton",
+        description:null,
+        data:{
+          options:[
+            {
+              uuid:1234556,
+              text:"USA"
+            },
+            {
+              uuid:2234556,
+              text:"India"
+            }
+          ]
+        }
+      },
+      {
+        id:12,
+        type:"select",
+        question: "This is quesiton 2",
+        description:null,
+        data:{
+          options:[
+            {
+              uuid:1234556555,
+              text:"USA"
+            },
+            {
+              uuid:2234556333,
+              text:"India"
+            }
+          ]
+        }
+      }
+    ],
+  },
+  {
+    id:100,
+    title:"This is title",
+    slug:'this-is-slug',
+    status:"draft",
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ4qe-TiNdb7kONl0a1C3a1R3H9TPWKSJeGg&usqp=CAU",
+    description:"This is description dfgdg df gff dg ffdfgdgd fffvcvbm ujkiufh thhgfhfhfyhfg gffyhtfgt ",
+    created_at:"2023-09-13 18:00:00",
+    updated_at:"2023-09-13 18:00:00",
+    expire_date:"2023-09-13 18:00:00",
+    questions:[
+      {
+        id:1,
+        type:"select",
+        question: "This is quesiton",
+        description:null,
+        data:{
+          options:[
+            {
+              uuid:1234556,
+              text:"USA"
+            },
+            {
+              uuid:2234556,
+              text:"India"
+            }
+          ]
+        }
+      },
+      {
+        id:12,
+        type:"select",
+        question: "This is quesiton 2",
+        description:null,
+        data:{
+          options:[
+            {
+              uuid:1234556555,
+              text:"USA"
+            },
+            {
+              uuid:2234556333,
+              text:"India"
+            }
+          ]
+        }
+      }
+    ],
+  }
+]
+
 const store = createStore({
   state: {
     user: {
-      data: {
-        name: "Prachi",
-        email: "test_user@mailinator.com",
-        imageUrl:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      },
+      data: {},
       token: sessionStorage.getItem("TOKEN"),
     },
+    surveys:[...tmpSurveys],
   },
   getters: {},
   actions: {
